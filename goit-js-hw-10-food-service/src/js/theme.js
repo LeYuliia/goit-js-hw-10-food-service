@@ -15,7 +15,6 @@ const classChange = () => {
     localStorage.setItem('Theme', String(Theme.LIGHT));
   }
   bodyRef.setAttribute('class', localStorage.getItem('Theme'));
-  localStorage.setItem('inputRef.checked', inputRef.checked);
 };
 
 //Сохранение темы при перезагрузке страницы
