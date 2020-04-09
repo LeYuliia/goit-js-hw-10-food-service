@@ -10,19 +10,19 @@ const Theme = {
 // Переключение темы
 const classChange = () => {
   if (inputRef.checked === true) {
-    localStorage.setItem('Theme', JSON.stringify(Theme.DARK));
+    localStorage.setItem('Theme', String(Theme.DARK));
   } else {
-    localStorage.setItem('Theme', JSON.stringify(Theme.LIGHT));
+    localStorage.setItem('Theme', String(Theme.LIGHT));
   }
-  bodyRef.setAttribute('class', JSON.parse(localStorage.getItem('Theme')));
-  localStorage.setItem('inputRef.checked', JSON.stringify(inputRef.checked));
+  bodyRef.setAttribute('class', localStorage.getItem('Theme'));
+  localStorage.setItem('inputRef.checked', inputRef.checked);
 };
 
 //Сохранение темы при перезагрузке страницы
 const chekboxChecked = () => {
-  const checkedValue = JSON.parse(localStorage.getItem('inputRef.checked'));
-  if (checkedValue === true) {
-    inputRef.setAttribute('checked', true);
+ const themeValue = localStorage.getItem('Theme');
+  if (themeValue === Theme.DARK) {
+    inputRef.checked =  true;
     bodyRef.setAttribute('class', Theme.DARK);
   }
 };
